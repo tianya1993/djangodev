@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<title>submit  userinfo </title>
+</head>
+
+
+<body>
+The content of the document......
+
+<form action="/userinfo" method="post">
+	<p>姓名：<input type="text" name="username" required="required"></p>
+	<p>性别：<input type="text" name="sex" required="required"></p>
+	<p>邮箱：<input type="text" name="email" required="required"></p>
+	<p><input type="submit" value="注册提交信息" ></p>
+
+
+</form>
+<hr>
+<h1>数据展示</h1>
+<table>
+	<tr>
+		<td>姓名：</td>
+		<td>性别：</td>
+		<td>邮箱：</td>
+	</tr>
+	{% for i in user_lists %}
+	<tr>
+
+		<td>{{i.username}}</td>
+		<td>{{i.sex}}</td>
+		<td>{{i.email}}</td>
+
+
+		
+	</tr>
+	{% endfor %}
+
+</table>
+</body>
+
+</html>

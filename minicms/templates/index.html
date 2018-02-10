@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<html>
+<head>
+<title>submit  userinfo </title>
+</head>
+
+<body>
+The content of the document......
+
+<form action="/userinfo" method="post">
+	<p>姓名：<input type="text" name="username" required="required">*</p>
+	<p>性别：<input type="text" name="sex" required="required">*</p>
+	<p>邮箱：<input type="text" name="email" required="required">*</p>
+	<p><input type="submit" value="注册提交信息" ></p>
+
+
+</form>
+<hr>
+<h1>数据展示</h1>
+<table border="1">
+	<tr>
+		<td>标题：</td>
+		<td>网址：</td>
+		<td>作者：</td>
+		<td>文章内容：</td>
+		<td>正式发布：</td>
+		<td>发表时间：</td>
+	</tr>
+	{% for i in user_info %}
+	<tr>
+
+		<td><h2>{{i.title}}</h2></td>
+		<td>{{i.slug}}</td>
+		<td>{{i.author}}</td>
+		<td>{{i.content}}</td>
+		<td>{{i.published}}</td>
+		<td>{{i.pub_date}}</td>
+	</tr>
+
+	{% endfor %}
+
+</table>
+</body>
+
+</html>
