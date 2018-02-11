@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% extends "base.html" %}
+
+{% block title %}
+{{ article.title }}
+{% endblock title %}
+
+
+{% block content %}
+<h1>文章标题： {{ article.title }}</h1>
+<div id="main">
+    {{ article.content }}
+</div>
+{% endblock content %
+
+</body>
+</html>

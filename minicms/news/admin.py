@@ -14,13 +14,15 @@ class ColumnAdmin(admin.ModelAdmin):
  	
  
 class ArticleAdmin(admin.ModelAdmin):
-    list_display = ('title', 'slug', 'content','author', 'pub_date', 'update_time')
-    search_fields = ('title', 'content','slug','pub_date', 'update_time')
+	list_display = ('title', 'slug', 'content','author', 'pub_date', 'update_time')
+	search_fields = ('title', 'content','slug','pub_date', 'update_time')
     #list_filter = ('published',)#提交状态筛选
-    list_filter = ('pub_date',)#时间筛选
-    date_hierarchy = 'pub_date' #排序 接受的是个字符串
-    ordering = ('-pub_date',)
-
+	empty_value_display = '-empty-'
+	list_filter = ('pub_date',)#时间筛选
+	date_hierarchy = 'pub_date' #排序接受的是个字符串
+	ordering = ('-pub_date',)
 admin.site.register(Column, ColumnAdmin)
 admin.site.register(Article, ArticleAdmin)
+
+
 

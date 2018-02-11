@@ -13,21 +13,23 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+#from django.urls import path, re_path
+from news  import views as news_views
 from django.contrib import admin
-from django.urls import path
 from django.conf.urls import include, url
-from  news  import  views   as  news_views
-
- 
+from django.urls import path , re_path
 from DjangoUeditor import urls as DjangoUeditor_urls
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^ueditor/', include(DjangoUeditor_urls)),
-    #path('',news_views.index, name='index'),
-    path('column/', news_views.column_detail, name='column'),
+    path('',news_views.index, name='index'),
+    path('dictinfo/', news_views.dictinfo,name="dictinfo"),
+    re_path(r'^column/(?P<column_slug>[^/]+)/$',news_views.column_detail,name='column'),
+    #re_path(r'^news/(?P<article_slug>[^/]+)/$',news_views.article_detail,name='article'),
+    #re_path('column/', news_views.column_detail, name='column'),
     path('news/', news_views.article_detail, name='article'),
     path('', news_views.articleinfo, name='articleinfo '),
+    re_path(r'^news/(?P<pk>\d+)/(?P<article_slug>[^/]+)/$', news_views.article_detail, name='article'),
   #  path('userinfo/',news_views.userinfo,name='usrinfo')
 
  

@@ -7,44 +7,87 @@
 <html>
 <head>
 <title>submit  userinfo </title>
+    <style>
+* {
+    box-sizing: border-box;
+}
+.header {
+    border: 1px solid red;
+    padding: 15px;
+}
+.menu {
+    width: 25%;
+    float: left;
+    padding: 15px;
+    border: 1px solid red;
+}
+.main {
+    width: 75%;
+    float: left;
+    padding: 15px;
+    border: 1px solid red;
+}
+.tablecss {
+    border: 1px solid #3b4249;
+
+
+}
+
+</style>
+
 </head>
 
 <body>
-The content of the document......
-
+<!--The content of the document......-->
+<!--
 <form action="/userinfo" method="post">
-	<p>姓名：<input type="text" name="username" required="required">*</p>
-	<p>性别：<input type="text" name="sex" required="required">*</p>
-	<p>邮箱：<input type="text" name="email" required="required">*</p>
-	<p><input type="submit" value="注册提交信息" ></p>
-
+    <p>姓名：<input type="text" name="username" required="required">*</p>
+    <p>性别：<input type="text" name="sex" required="required">*</p>
+    <p>邮箱：<input type="text" name="email" required="required">*</p>
+    <p><input type="submit" value="注册提交信息" ></p>
 
 </form>
-<hr>
-<h1>数据展示</h1>
-<table border="1">
-	<tr>
+-->
+
+<div class="header">
+        <h1>信息系统数据展示</h1>
+
+</div>
+<div class="menu">
+    <ul>
+        <li>The Flight</li>
+        <li>The City</li>
+        <li>The Island</li>
+        <li>The Food</li>
+    </ul>
+</div>
+<div class="main">
+    <h3>文章列表</h3>
+        <table class="tablecss">
+	<tr class="tablecss">
 		<td>标题：</td>
-		<td>网址：</td>
-		<td>作者：</td>
 		<td>文章内容：</td>
 		<td>正式发布：</td>
 		<td>发表时间：</td>
 	</tr>
 	{% for i in user_info %}
-	<tr>
+	<tr class="tablecss">
 
-		<td><h2>{{i.title}}</h2></td>
+		<td><a href="http://www.baidu.com">{{i.title}}</td>
 		<td>{{i.slug}}</td>
-		<td>{{i.author}}</td>
 		<td>{{i.content}}</td>
-		<td>{{i.published}}</td>
 		<td>{{i.pub_date}}</td>
 	</tr>
 
 	{% endfor %}
 
 </table>
+
+</div
 </body>
 
 </html>
+
+
+
+
